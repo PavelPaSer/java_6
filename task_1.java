@@ -149,14 +149,14 @@ public class task_1 {
 
     public static void hdd_sort(HashSet<notebook> add_notebook, HashSet<notebook> filter) {
         Scanner set = new Scanner(System.in);
-        int min_hdd_int = 0;
+        int min_hdd_new = 0;
         int max_hdd_int = 0;
         boolean flag = false;
         while (!flag) {
             System.out.print("Введите минимальный объем жесткого диска: ");
             String min_hdd = set.next();
             if (isDigit(min_hdd)) {
-                min_hdd_int = Integer.parseInt(min_hdd);
+                min_hdd_new = Integer.parseInt(min_hdd);
                 flag = true;
             } else {
                 System.out.println("Вы ввели не верный символ\nВведите число от 320");
@@ -175,7 +175,7 @@ public class task_1 {
         }
         if (filter.isEmpty()) {
             for (notebook p : add_notebook) {
-                if (p.hdd_noot <= max_hdd_int && p.hdd_noot >= min_hdd_int) {
+                if (p.hdd_noot <= max_hdd_int && p.hdd_noot >= min_hdd_new) {
                     filter.add(p);
                 }
             }
@@ -183,7 +183,7 @@ public class task_1 {
             HashSet<notebook> support_filter = new HashSet<>(filter);
             filter.clear();
             for (notebook p : support_filter) {
-                if (p.hdd_noot <= max_hdd_int && p.hdd_noot >= min_hdd_int) {
+                if (p.hdd_noot <= max_hdd_int && p.hdd_noot >= min_hdd_new) {
                     filter.add(p);
                 }
             }
